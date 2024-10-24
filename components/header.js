@@ -1,57 +1,43 @@
-import { View, TouchableOpacity, Image, StyleSheet } from "react-native";
+import { HStack, VStack, IconButton, Image, View } from "native-base";
 
 // Functional Component with props
 const Header = (props) => {
   return (
-    <View style={styles.header}>
-      <TouchableOpacity onPress={() => props.drawer.current.openDrawer()}>
+    <HStack bg="#AA0002" justifyContent="space-between" p={4}>
+      <IconButton
+        icon={
+          <Image
+            source={require("../assets/menu.png")}
+            alt="menu"
+            style={{ width: 18, height: 18 }}
+          />
+        }
+        onPress={() => props.drawer.current.openDrawer()}
+      />
+      <HStack space={4} alignItems="center">
         <Image
-          source={require("../assets/menu.png")}
-          style={{ width: 18, height: 18 }}
+          source={require("../assets/facebook.png")}
+          alt="facebook"
+          style={{ width: 36, height: 16, resizeMode: "contain" }}
         />
-      </TouchableOpacity>
-      <View>
-        <View style={styles.iconsView}>
-          <Image
-            source={require("../assets/facebook.png")}
-            style={styles.icons}
-          />
-          <Image
-            source={require("../assets/youtube.png")}
-            style={styles.icons}
-          />
-          <Image
-            source={require("../assets/twitter.png")}
-            style={styles.icons}
-          />
-          <Image
-            source={require("../assets/search.png")}
-            style={styles.icons}
-          />
-        </View>
-      </View>
-    </View>
+        <Image
+          source={require("../assets/youtube.png")}
+          alt="youtube"
+          style={{ width: 36, height: 16, resizeMode: "contain" }}
+        />
+        <Image
+          source={require("../assets/twitter.png")}
+          alt="twitter"
+          style={{ width: 36, height: 16, resizeMode: "contain" }}
+        />
+        <Image
+          source={require("../assets/search.png")}
+          alt="search"
+          style={{ width: 36, height: 16, resizeMode: "contain" }}
+        />
+      </HStack>
+    </HStack>
   );
 };
-
-// Styles
-const styles = StyleSheet.create({
-  header: {
-    backgroundColor: "#AA0002",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    padding: 15,
-  },
-  iconsView: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  icons: {
-    width: 36,
-    height: 16,
-    resizeMode: "contain",
-  },
-});
 
 export default Header;
